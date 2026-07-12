@@ -1,0 +1,12 @@
+server:
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: transaction-management
+web:
+  cors:
+    allowed-origins:
+      - http://localhost:4200
+transaction:
+  file-path: ${TRANSACTION_FILE_PATH:data/transactions.csv}

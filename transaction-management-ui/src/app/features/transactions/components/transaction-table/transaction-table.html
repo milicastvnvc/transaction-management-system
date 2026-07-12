@@ -1,0 +1,74 @@
+<div class="table-container">
+  <table
+    mat-table
+    [dataSource]="transactions()"
+    class="transaction-table"
+  >
+    <ng-container matColumnDef="transactionDate">
+      <th mat-header-cell *matHeaderCellDef>
+        Transaction Date
+      </th>
+
+      <td mat-cell *matCellDef="let transaction">
+        {{ transaction.transactionDate | date: 'mediumDate' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accountNumber">
+      <th mat-header-cell *matHeaderCellDef>
+        Account Number
+      </th>
+
+      <td mat-cell *matCellDef="let transaction">
+        {{ transaction.accountNumber }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accountHolderName">
+      <th mat-header-cell *matHeaderCellDef>
+        Account Holder Name
+      </th>
+
+      <td mat-cell *matCellDef="let transaction">
+        {{ transaction.accountHolderName }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef>
+        Amount
+      </th>
+
+      <td mat-cell *matCellDef="let transaction">
+        {{ transaction.amount | number: '1.2-2' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>
+        Status
+      </th>
+
+      <td mat-cell *matCellDef="let transaction">
+        <span
+          class="status-badge"
+          [class.status-pending]="transaction.status === 'PENDING'"
+          [class.status-settled]="transaction.status === 'SETTLED'"
+          [class.status-failed]="transaction.status === 'FAILED'"
+        >
+          {{ getStatusLabel(transaction.status) }}
+        </span>
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+    ></tr>
+
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+  </table>
+</div>

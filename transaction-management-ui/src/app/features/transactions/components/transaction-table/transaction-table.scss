@@ -1,0 +1,53 @@
+.table-container {
+  overflow-x: auto;
+  border: 1px solid #e2e5e9;
+  border-radius: 12px;
+}
+
+.transaction-table {
+  width: 100%;
+  background: white;
+}
+
+th.mat-mdc-header-cell {
+  padding: 16px;
+  font-weight: 600;
+  color: #394150;
+  background: #f7f8fa;
+  white-space: nowrap;
+}
+
+td.mat-mdc-cell {
+  padding: 16px;
+  color: #252a34;
+  border-bottom-color: #eceef1;
+}
+
+tr.mat-mdc-row:hover {
+  background: #fafbfc;
+}
+
+.status-badge {
+  display: inline-block;
+  min-width: 72px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-pending {
+  color: #7a5800;
+  background: #fff1b8;
+}
+
+.status-settled {
+  color: #176b3a;
+  background: #d8f3e3;
+}
+
+.status-failed {
+  color: #a22020;
+  background: #ffe0e0;
+}

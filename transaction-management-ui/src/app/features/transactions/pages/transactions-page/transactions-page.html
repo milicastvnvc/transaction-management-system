@@ -1,0 +1,68 @@
+<main class="page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Transaction Management</p>
+      <h1>Transactions</h1>
+      <p class="page-description">
+        View existing transactions and add new records.
+      </p>
+    </div>
+
+    <button
+      mat-flat-button
+      type="button"
+      (click)="openAddTransactionDialog()"
+    >
+      <mat-icon>add</mat-icon>
+      Add Transaction
+    </button>
+  </header>
+
+  <section class="content-card">
+    @if (isLoading()) {
+      <div class="state-container">
+        <mat-spinner diameter="44"></mat-spinner>
+        <p>Loading transactions...</p>
+      </div>
+    } @else if (loadingError()) {
+      <div class="state-container error-state" role="alert">
+        <mat-icon>error_outline</mat-icon>
+        <h2>Unable to load transactions</h2>
+        <p>{{ loadingError() }}</p>
+
+        <button
+          mat-stroked-button
+          type="button"
+          (click)="loadTransactions()"
+        >
+          Try Again
+        </button>
+      </div>
+    } @else if (transactions().length === 0) {
+      <div class="state-container">
+        <mat-icon>receipt_long</mat-icon>
+        <h2>No transactions yet</h2>
+        <p>Add the first transaction to get started.</p>
+
+        <button
+          mat-stroked-button
+          type="button"
+          (click)="openAddTransactionDialog()"
+        >
+          Add Transaction
+        </button>
+      </div>
+    } @else {
+      <div class="table-summary">
+        <span>
+          {{ transactions().length }}
+          {{ transactions().length === 1 ? 'transaction' : 'transactions' }}
+        </span>
+      </div>
+
+      <app-transaction-table
+        [transactions]="transactions()"
+      />
+    }
+  </section>
+</main>

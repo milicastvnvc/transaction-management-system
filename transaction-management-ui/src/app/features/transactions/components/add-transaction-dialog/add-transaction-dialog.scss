@@ -1,0 +1,41 @@
+.transaction-form {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  padding-top: 8px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.submission-error {
+  margin: 0;
+  padding: 12px;
+  border-radius: 8px;
+  color: #a22020;
+  background: #ffe8e8;
+}
+
+mat-dialog-content {
+  width: min(500px, 80vw);
+}
+
+mat-dialog-actions {
+  padding: 16px 24px 20px;
+}
+
+button mat-spinner {
+  display: inline-block;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
