@@ -74,10 +74,8 @@ chmod +x gradlew
 
 ```powershell
 cd transaction-management-ui
-npm ci
+npm install
 ```
-
-`npm ci` installs the exact frontend dependency versions from `package-lock.json`.
 
 ## Configuration
 
@@ -294,7 +292,7 @@ Or curl test (macOS/Linux):
 ```bash
 curl -X POST http://localhost:8080/api/transactions \
   -H "Content-Type: application/json" \
-  -d '{"transactionDate":"2026-07-12","accountNumber":"1234-5678-9012","accountHolderName":"John Smith","amount":150.50}
+  -d '{"transactionDate":"2026-07-12","accountNumber":"1234-5678-9012","accountHolderName":"John Smith","amount":150.50}'
 ```
 
 ### Validation
